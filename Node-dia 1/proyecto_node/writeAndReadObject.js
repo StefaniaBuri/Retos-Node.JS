@@ -11,31 +11,17 @@ function objetoFs(){
 
     fs.writeFile('./objeto.json', JSON.stringify(objeto, null, 2), err =>{
 
-        if(err){
-            console.log(err);
-        }
-        else{
-            console.log('Archivo escrito con éxito');
-        }
-    });
-
-
-    fs.readFile('./objeto.json', 'utf-8', (err, jsonString) => {
-    if(err){
-        console.log(err);
-    }else{
-
-            try{
-                const data = JSON.parse(jsonString);
-            // console.log(data.name);
-                console.log(jsonString);
+        fs.readFile('./objeto.json', 'utf-8', (err, jsonString) => {
+            if(err){
+                console.log(err);
             }
-            catch (err){
-                console.log('Error analizando JSON', err);
-            }
-    }
-    })
-}
+            else{
+                    console.log(JSON.parse(jsonString));
+                }  
+        })
+        
+    });         
+};
 
 objetoFs();
 
